@@ -14,7 +14,7 @@ mkdir -p $PREFIX/bin
 mkdir -p $SHARE_DIR/bin
 
 if [ $(uname) == Linux ]; then
-    # The distributed IgBLAST binaries set an RPATH that conda build complains about
+    # Distributed IgBLAST 1.5.0 binaries set an RPATH that conda build complains build.
     for FILE in makeblastdb igblastn igblastp; do
         patchelf --remove-rpath bin/$FILE
     done
