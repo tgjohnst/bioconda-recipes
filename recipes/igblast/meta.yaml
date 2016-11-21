@@ -27,4 +27,4 @@ requirements:
 
 test:
   commands:
-    - igblastn -h > /dev/null 2>&1
+    - igblastn -h
