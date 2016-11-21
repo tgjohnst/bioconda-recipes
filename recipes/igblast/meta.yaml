@@ -24,6 +24,7 @@ requirements:
     - perl-threaded >=5.8.8
     - libgcc  # [linux]
     - zlib
+    - bzip2
 
 test:
   commands:
