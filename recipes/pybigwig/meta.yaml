@@ -13,16 +13,16 @@ build:
 
 requirements:
   build:
-    - python x.x
+    - python
     - curl
     - numpy x.x
   run:
-    - python x.x
+    - python
     - curl
     - numpy x.x
 test:
   imports:
-    - pyBigWig
+    - numpy
 
 about:
   home: https://github.com/dpryan79/pyBigWig
