@@ -1,0 +1,29 @@
+package:
+  name: python34_numpy
+  version: '0.0.0'
+
+source:
+  path: ./
+
+build:
+  number: 0
+  skip: True # [not py34]
+
+requirements:
+  build:
+    - python
+    - numpy
+    - curl
+  run:
+    - python
+    - numpy
+    - curl
+
+test:
+  imports:
+    - numpy
+
+about:
+  home: https://github.com/dpryan79/pyBigWig
+  license: MIT
+  summary: This is just a demonstration of numpy segfaulting
