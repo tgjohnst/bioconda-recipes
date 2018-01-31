@@ -1,11 +1,13 @@
+{% set version="2.6.20171116190026" %}
+
 package:
   name: schema-salad
-  version: '2.1.20161227191302'
+  version: {{ version }}
 
 source:
-  fn: schema-salad-2.1.20161227191302.tar.gz
-  url: https://pypi.python.org/packages/59/b4/fed4e8227dd910933bc8fb8e5b5a70f0338d010cf0e35fd8772e28320ee8/schema-salad-2.1.20161227191302.tar.gz
-  md5: 87f7423940699d51d7be4fc8a8112e95
+  fn: schema-salad-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/s/schema-salad/schema-salad-{{ version }}.tar.gz
+  md5: a8909652bf4f764880e7a3275a2596e4
 
 build:
   entry_points:
@@ -20,13 +22,12 @@ requirements:
     - requests
     - rdflib >=4.2.0
     - rdflib-jsonld >=0.3.0
-    - mistune
-    - typing >=3.5.2
-    - ruamel.yaml >=0.12.4
-    - cachecontrol
+    - mistune >=0.7.3,<0.8
+    - typing >=3.5.2,<3.6
+    - ruamel.yaml >=0.12.4,<0.15
+    - cachecontrol >=0.11.7,<0.12
     - lockfile
-    - pathlib2
-    - avro-python2 # [py27]
+    - avro-python2 ==1.8.1 # [py27]
     - avro-python3 # [not py27]
 
   run:
@@ -35,12 +36,11 @@ requirements:
     - rdflib >=4.2.0
     - rdflib-jsonld >=0.3.0
     - mistune
-    - typing >=3.5.2
-    - ruamel.yaml >=0.12.4
-    - cachecontrol
+    - typing >=3.5.2,<3.6
+    - ruamel.yaml >=0.12.4,<0.15
+    - cachecontrol >=0.11.7,<0.12
     - lockfile
-    - pathlib2
-    - avro-python2 # [py27]
+    - avro-python2 ==1.8.1 # [py27]
     - avro-python3 # [not py27]
 
 test:

@@ -1,10 +1,11 @@
 package:
   name: vardict
-  version: '2016.02.19'
+  version: '2017.11.23'
 
 source:
-  fn: VarDict-de269ed.tar.gz
-  url: https://github.com/AstraZeneca-NGS/VarDict/archive/de269ed.tar.gz
+  fn: vardict-94a39b7.tar.gz
+  url: https://github.com/AstraZeneca-NGS/VarDict/archive/94a39b7.tar.gz
+  sha256: 3b40358976d62e042ca6e43f1f9a8237b374188eaaec7ab6e9d38f881854d73e
 
 build:
   number: 0
@@ -13,6 +14,8 @@ build:
 requirements:
   build:
   run:
+    - perl
+    - r-base
 
 test:
   commands:

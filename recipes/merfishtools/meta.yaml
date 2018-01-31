@@ -1,6 +1,6 @@
-{% set version = "1.1.0" %}
+{% set version = "1.3.0" %}
 {% set name = "merfishtools" %}
-{% set sha256 = "897e6c040bef9f467d19cd1bc4b72075ddad086172a895ae61991c004f6d9baa" %}
+{% set sha256 = "5f2e2927a9ff3c1dfee73604cbf30da7c9f6eeb6292888842587e7ab6ec402e5" %}
 
 package:
   name: {{ name }}
@@ -18,7 +18,7 @@ source:
 
 requirements:
   build:
-    - rust
+    - rust >=1.19
     - gcc 4.8.2 # newer gcc seems to be lacking Scrt1.o
     - gsl {{CONDA_GSL}}*
     - python
@@ -31,6 +31,7 @@ requirements:
     - numpy
     - pandas
     - gsl {{CONDA_GSL}}*
+    - libgcc
 
 test:
   commands:

@@ -1,11 +1,13 @@
+{% set version="1.0.20170928192020" %}
+
 package:
   name: cwltool
-  version: '1.0.20161227200419'
+  version: {{ version }}
 
 source:
-  fn: cwltool-1.0.20161227200419.tar.gz
-  url: https://pypi.python.org/packages/e8/e8/c0556020f5e2b241610ee5813c00dd86dbbb35b468f4c9f25c422f2065a6/cwltool-1.0.20161227200419.tar.gz
-  md5: e0db6bd936d20e1f8beb654e891e1dde
+  fn: cwltool-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/c/cwltool/cwltool-{{ version }}.tar.gz
+  md5: d4b5de52b19366175cab6e606825cf7e
 
 build:
   number: 0
@@ -15,28 +17,31 @@ requirements:
   build:
     - python
     - setuptools
-    - pathlib2
     - requests
-    - ruamel.yaml >=0.12.4
-    - rdflib
-    - rdflib-jsonld
     - shellescape
     - cwltest
-    - schema-salad ==2.1.20161227191302
-    - typing >=3.5.2
+    # schema-salad and pinned deps
+    - schema-salad >=2.6.20170927145003,<3.0
+    - cachecontrol >=0.11.7,<0.12
+    - mistune >=0.7.3,<0.8
+    - rdflib >=4.2.2
+    - rdflib-jsonld >=0.3.0
+    - ruamel.yaml >=0.12.4,<0.15
+    - typing >=3.5.3,<3.6
 
   run:
     - python
-    - setuptools
-    - pathlib2
     - requests
-    - ruamel.yaml >=0.12.4
-    - rdflib
-    - rdflib-jsonld
     - shellescape
     - cwltest
-    - schema-salad ==2.1.20161227191302
-    - typing >=3.5.2
+    # schema-salad and pinned deps
+    - schema-salad >=2.6.20170927145003,<3.0
+    - cachecontrol >=0.11.7,<0.12
+    - mistune >=0.7.3,<0.8
+    - rdflib >=4.2.2
+    - rdflib-jsonld >=0.3.0
+    - ruamel.yaml >=0.12.4,<0.15
+    - typing >=3.5.3,<3.6
 
 test:
   imports:

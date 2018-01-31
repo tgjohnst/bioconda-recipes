@@ -1,5 +1,6 @@
 {% set name = "vsearch" %}
-{% set version = "2.3.4" %}
+{% set version = "2.6.0" %}
+{% set hash = "d9fa6907aa0535bff8578a6a38d948569e13cdcd7db270c604bccfa6f77df466" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +9,7 @@ package:
 source:
   fn: {{ name|lower }}_{{ version }}.tar.gz
   url: https://github.com/torognes/vsearch/archive/v{{ version }}.tar.gz
-  md5: 8d37cbe41471d3f4b52fda4c24d77533
+  sha256: {{ hash }}
 
 build:
   number: 0
@@ -20,8 +21,11 @@ requirements:
     - m4
     - gcc  # [linux]
     - llvm  # [osx]
+    - perl
+    - zlib {{CONDA_ZLIB}}*
   run:
     - libgcc  # [linux]
+    - zlib {{CONDA_ZLIB}}*
 
 test:
   commands:

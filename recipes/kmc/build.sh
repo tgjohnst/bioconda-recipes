@@ -1,28 +1,15 @@
 #!/bin/bash
 
-set -efu -o pipefail
-
+export DISABLE_ASMLIB=true
+export CXX=g++
 export CPPFLAGS="-I${PREFIX}/include"
-export LDFLAGS="-L${PREFIX}/lib"
+export LDFLAGS="-L${PREFIX}/lib -Wl,-rpath,${PREFIX}/lib"
 
-chmod u+x ${SRC_DIR}/configure
-chmod u+x ${SRC_DIR}/build-aux/ar-lib
-chmod u+x ${SRC_DIR}/build-aux/compile
-chmod u+x ${SRC_DIR}/build-aux/config.guess
-chmod u+x ${SRC_DIR}/build-aux/config.sub
-chmod u+x ${SRC_DIR}/build-aux/depcomp
-chmod u+x ${SRC_DIR}/build-aux/install-sh
-chmod u+x ${SRC_DIR}/build-aux/ltmain.sh
-chmod u+x ${SRC_DIR}/build-aux/missing
-chmod u+x ${SRC_DIR}/build-aux/test-driver
+if [ "$(uname)" == "Darwin" ]; then
+    Makefile=makefile_mac
+else
+    Makefile=makefile
+fi
+make -f $Makefile
 
-cp README.md README
-
-mkdir -p build
-pushd build
-
-${SRC_DIR}/configure --prefix=$PREFIX
-make install
-popd
-
-
+cp bin/kmc bin/kmc_dump bin/kmc_tools "${PREFIX}/bin/"

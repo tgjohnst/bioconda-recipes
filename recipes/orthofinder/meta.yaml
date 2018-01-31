@@ -1,29 +1,37 @@
+{% set version = "2.1.2" %}
+{% set sha256 = "b187a901cf4ed8cfdbc68eeea713734f3a5dc2b26abd20804bf870302f1e22a5" %}
+
 package:
   name: orthofinder
-  version: "1.1.2"
+  version: {{ version }}
 
 build:
-  number: 0
+  number: 1
   skip: True # [not py27]
 
 source:
-  fn: OrthoFinder-1.1.2_source.tar.gz
-  url: https://github.com/davidemms/OrthoFinder/releases/download/1.1.2/OrthoFinder-1.1.2_source.tar.gz
-  sha256: 505c884ed0b9a02035449de0f60a7d258e19c04f54e70eae63873b23fa2df2fc
+  fn: OrthoFinder-{{ version }}_source.tar.gz
+  url: https://github.com/davidemms/OrthoFinder/releases/download/{{ version }}/OrthoFinder-{{ version }}_source.tar.gz
+  sha256: {{ sha256 }}
 
 requirements:
   run:
     - python
     - scipy
     - blast
+    - diamond
     - mcl
     - fastme
     - dlcpar
+    - mafft
+    - fasttree
+    - muscle
+    - raxml
+    - iqtree
 
 test:
   commands:
     - orthofinder > /dev/null
-    - trees_from_MSA > /dev/null
 
 about:
   home: https://github.com/davidemms/OrthoFinder

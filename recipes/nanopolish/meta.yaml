@@ -1,40 +1,47 @@
+{% set name = "nanopolish" %}
+{% set version = "0.8.5" %}
+
 package:
-  name: nanopolish
-  version: "0.4.0"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 build:
-  number: 0
-  skip: True # [osx]
+  number: 3
+  string: "ncurses{{CONDA_NCURSES}}_{{PKG_BUILDNUM}}"
 
 source:
-  fn: nanopolish_v0.4.0.tar.gz
-  url: https://github.com/jts/nanopolish/archive/v0.4.0.tar.gz
-  md5: b5aa0325568d1e3089162e9e3e54c6c2
-
+  fn: {{ name|lower }}_{{ version }}.tar.gz
+  url: https://github.com/jts/nanopolish/archive/v{{ version }}.tar.gz
+  md5: 0a4db39659bce9117fc6167c4df0c88f
   patches:
     - nanopolish.patch
 
 requirements:
   build:
   - gcc
-  - fast5
-  - htslib
-  - hdf5
+  - fast5 ==0.6.4
+  - htslib >1.4
+  - hdf5 {{ CONDA_HDF5 }}*
+  - eigen
+  - ncurses {{CONDA_NCURSES}}*
 
   run:
   - libgcc
-  - fast5
-  - htslib
-  - hdf5
+  - python
+  - hdf5 {{ CONDA_HDF5 }}*
   - biopython
+  - bwa
+  - eigen
+  - ncurses {{CONDA_NCURSES}}*
 
 test:
   commands:
-    - nanopolish --help  2>&1 | grep usage  > /dev/null
+    - nanopolish --help
+    - nanopolish --version
 
 about:
   home: https://github.com/jts/nanopolish
   license: MIT
   license_file: LICENSE
-  summary: Signal-level algorithms for MinION data
-
+  summary: 'Signal-level algorithms for MinION data.'
+  

@@ -1,10 +1,11 @@
 #!/bin/bash
 
 NGS_SDK_VERSION=1.3.0
-NCBI_VDB_VERSION=2.8.0
+NCBI_VDB_VERSION=2.8.2-2
 
 NGS_SDK_SHA256=803c650a6de5bb38231d9ced7587f3ab788b415cac04b0ef4152546b18713ef2
-NGS_VDB_SHA256=efa0b9b4987db7ef80e2c91ba35f5a0bab202e3a4824e8f34c51de303ca4eb17
+NGS_VDB_SHA256=7866f7abf00e35faaa58eb3cdc14785e6d42bde515de4bb3388757eb0c8f3c95
+
 
 curl -L https://github.com/ncbi/ngs/archive/${NGS_SDK_VERSION}.tar.gz \
 	> ngs-sdk-${NGS_SDK_VERSION}.tar.gz

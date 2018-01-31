@@ -1,19 +1,25 @@
 package:
   name: nextflow
-  version: "0.21.3"
+  version: "0.27.2"
 
 build:
   number: 0
 
 source:
   fn: nextflow
-  url: https://github.com/nextflow-io/nextflow/releases/download/v0.21.3/nextflow
-  md5: 241e4bd48eb9ef6af31e22002ef8b0eb
+  url: https://www.nextflow.io/releases/v0.27.2/nextflow
+  md5: 461616455e7297e7cc9ea56aec8c8383
 
 requirements:
+  build:
+    - openjdk >=8,<9
+    - coreutils
+    - curl
   run:
-    - java-jdk >=7.0,<8.0
-
+    - openjdk >=8,<9
+    - coreutils
+    - curl
+    
 test:
   commands:
     - nextflow -v
